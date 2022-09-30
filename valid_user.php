@@ -58,65 +58,35 @@ header('Location: show_user.php?id='. $num) or handl_error;*/
 ?>
 <div class="text-center">
     <h2 class="mb-4 ">Добро пожаловать,   <strong><?php echo $first_name . ' ' . $last_name ?></strong></h2>
-    <h4>Ваши регистрационные данные:</h4>
+    <h4 >Ваши регистрационные данные:</h4>
 </div>
-<div class="d-flex flex-row flex-wrap m-5 ">
-    <div class="p-2">
-        <table class='New'>
-            <tr><td>Фото</td><td><?php //echo $username?></td></tr>
-        </table>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <table class='New'>
+                <tr><td>Фото</td><td><?php //echo $username?></td></tr>
+            </table>
+        </div>
+        <div class="col-6" style="font-size: 1.3em">
+            <p> Логин:  <?php echo $username?></p>
+            <p> Имя:  <?php echo $first_name ?></p>
+            <p> Фамилия:  <?php echo $last_name ?></p>
+            <p> Электронная почта:  <?php echo $email ?> </p>
 
-    </div>
-
-    <div class="p-2" style="font-size: 1.5em">
-
-        <p> Логин:  <?php echo $username?></p>
-        <p> Имя:  <?php echo $first_name ?></p>
-        <p> Фамилия:  <?php echo $last_name ?></p>
-        <p> Электронная почта:  <?php echo $email ?> </p>
-
-    </div>
-
-    <div class="p-2 m-3 " style="font-size: 1.2em"><?php $check=0;
-        if ($check!=1){
-            echo "<p class='error' >Адрес электронной почты не подтвержден, зайдите на почту. Аккаунт будет удален 
+        </div>
+        <div class="col">
+            <div class="p-2 m-3 " style="font-size: 1.2em"><?php $check=0;
+                if ($check!=1){
+                    echo "<p class='error' >Адрес электронной почты не подтвержден, зайдите на почту. Аккаунт будет удален 
     в течение 30 дней, в случае отсутствия подтверждения!</p>";
-        }?>
-        <?php echo  '<a href=index.html><strong>Выйти из приложения</strong></a>';?>
+                }?>
+                <?php echo  '<a href=index.html><strong>Выйти из приложения</strong></a>';?>
+            </div>
+        </div>
     </div>
-
 </div>
 
-<!--
-<form class="form text-center">
-    <table class='head'>
-        <tr><td rowspan="2">Здесь будет ваше изображение</td>
-            <td></td></tr>
 
-
-
-        <tr><td><h2 class="">Добро пожаловать, <strong><?php echo $first_name . ' ' . $last_name ?></strong></h2>
-
-                <p>Ваши регистрационные данные:</p><br>
-
-            </td></tr>
-    </table>
-    <br>
-    <table class='New'>
-        <tr><td>Логин</td><td><?php echo $username?></td></tr>
-        <tr><td>Имя</td><td><?php echo $first_name ?></td></tr>
-        <tr><td>Фамилия</td><td><?php echo $last_name ?></td></tr>
-        <tr><td>Электронная почта</td><td><?php echo $email ?></td></tr>
-         тут был адрес вк
-    </table>
-    <?php $check=0;
-    if ($check!=1){
-        echo "<p class='error'>Адрес электронной почты не подтвержден, зайдите на почту. Аккаунт будет удален 
-    в течении 30 дней, в случае отсутствия подтверждения!</p>";
-    }?>
-    <?php echo  '<a href=index.html><strong>Выйти из приложения</strong></a>';?>
-
-    <br></form> -->
 
 
 <div style="height: 78px" >
