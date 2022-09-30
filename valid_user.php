@@ -16,7 +16,7 @@
     </div>
 </header>
 <?php
-//чтение
+//i0io9
 /*$Name=$_POST['Name'];
 $Tel=$_POST['Tel'];
 $Address=$_POST['Address'];*/
