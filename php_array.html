@@ -1,0 +1,42 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ведомость</title>
+</head>
+<body>
+<style type="text/css">
+  table{
+    border-collapse: collapse;
+  }
+  td{
+    width: 20%;
+    border: 1px solid black;
+  }
+</style>
+<h1>Успеваемость студентов группы</h1>
+<table>
+  <tr>
+    <td>№ п/п</td>
+    <td>Фамилия</td>
+    <td>Оценка</td>
+  </tr>       <!--Это шапка таблицы-->
+  <?php
+       $student = array('Петров'=>2, 'Макаров'=>4, 'Лазарева'=>3, 'Тимофеев'=>5, 'Лукьянова'=>4);
+  $sum=0;
+  foreach ($student as $key => $value)    // Переберем созданный ранее массив $student
+  {
+  $j++;
+  $sum+=$value;
+  $table .= "<tr>
+  <td>{$j}</td>
+  <td>{$key}</td>
+  <td>{$value}</td>
+</tr>";
+  }
+  echo $table; //Вывод переменной, содержащей заполнение таблицы на страницу
+  echo '</table>';
+$mean=$sum/count($student);
+echo 'Среднее значение составляет: ' . $mean; //точка объединяет символьные переменные
+?>
+</body>
+</html>
