@@ -24,12 +24,7 @@ $result = mysqli_query($connect, $query);
              </tr>";} ?>
 </table>
 
-
 </body>
-
-
-
-
 
 
 </html>
