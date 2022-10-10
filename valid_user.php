@@ -38,6 +38,13 @@ or handl_error("Ошибка кода оказалась критической"
 $num=strval(mysqli_insert_id($connect));
 //die('Пользователь '.$num. ' записан');
 
+
+
+function handl_error($error_message, $system_error_message){
+    header("Location: error.php?" . "error_message={$error_message}&" .
+        "system_error_message={$system_error_message}");
+    exit();}
+
 //Добавление пользователя при помощи подготовленного выражения
 /*$stmt= mysqli_prepare($connect, 'INSERT INTO user(first_name, last_name, email, username, password) VALUES((?), (?), (?), (?), (?))');
 mysqli_stmt_bind_param($stmt, 'ssssssi', $first_name, $last_name, $email,$username, $Password_hash);
@@ -45,14 +52,11 @@ $answ= mysqli_stmt_execute($stmt);
 mysqli_close($connect)
 or handl_error("Ошибка кода оказалась критической", mysqli_error($connect));
 header("Location: show_user.php");
-
-
 //ошибка
 function handl_error($error_message, $system_error_message){
     header("Location: error.php?" . "error_message={$error_message}&" .
         "system_error_message={$system_error_message}");
     exit();}
-
 //перенаправление
 header('Location: show_user.php?id='. $num) or handl_error;*/
 ?>

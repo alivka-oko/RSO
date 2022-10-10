@@ -16,13 +16,19 @@ $result = mysqli_query($connect, $query);
         <th>E-mail </th>
     </tr>
     <?php
-    while ($user=mysqli_fetch_array($result)){
-        echo"<tr> 
+
+    while ($user=mysqli_fetch_array($result)  ){
+        if ($user['year_birth']>2000){
+        echo"
+<tr> 
             <td>{$user['username']}</td>
             <td>{$user['year_birth']}</td>
             <td>{$user['email']}</td>          
-             </tr>";} ?>
+             </tr>";}} ?>
 </table>
+
+
+
 
 </body>
 
