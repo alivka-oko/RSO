@@ -16,49 +16,27 @@
     </div>
 </header>
 <?php
-//i0io9
-/*$Name=$_POST['Name'];
-$Tel=$_POST['Tel'];
-$Address=$_POST['Address'];*/
-$first_name = filter_input(INPUT_POST, 'first_name', FILTER_VALIDATE_REGEXP, array('options'=> array('regexp'=>'/(^[A-Za-z]+$)|(^[А-ЯЁа-яё]+$)/u')));
-$last_name= filter_input(INPUT_POST, 'last_name', FILTER_VALIDATE_REGEXP, array('options'=> array('regexp'=>'/(^[A-Za-z]+$)|(^[А-ЯЁа-яё]+$)/u')));
-$email= filter_input(INPUT_POST, 'email' );
-$username = filter_input(INPUT_POST, 'username',FILTER_VALIDATE_REGEXP, array('options'=> array('regexp'=>'/^[\w]+$/u')));
-$Password_hash= Password_hash($_POST['Password'], PASSWORD_DEFAULT);
-
-//запись
-$connect=mysqli_connect('localhost', 'localhost', '123', 'rso')
-or handl_error("Возникла ошибка при подключении к базе данных", mysqli_connect_error($connect));
+$user_id=$_GET['user_id'];
+$select_query="SELECT * FROM user WHERE id=" . $user_id;//* означает выбрать все
+$connect=mysqli_connect('localhost', 'localhost', '123', 'rso');
 mysqli_set_charset($connect, "utf8");
+$result=mysqli_query($connect, $select_query);
+if ($result){
+    $row=mysqli_fetch_array($result);
+    $first_name=$row['first_name'];
+    $last_name=$row['last_name'];
+    $email=$row['email'];
+    $username = $row['username'];
+    $img = $row['user_pic_path'];
 
-$inset_clients="INSERT INTO user (first_name, last_name, email, username, password)
- VALUES('{$first_name}', '{$last_name}', '{$email}', '{$username}', '{$Password_hash}')" ;
-$msqq=mysqli_query($connect, $inset_clients)
-or handl_error("Ошибка кода оказалась критической", mysqli_error($connect));
-$num=strval(mysqli_insert_id($connect));
-//die('Пользователь '.$num. ' записан');
+}
+?>
+
+
+<?php
 
 
 
-function handl_error($error_message, $system_error_message){
-    header("Location: error.php?" . "error_message={$error_message}&" .
-        "system_error_message={$system_error_message}");
-    exit();}
-
-//Добавление пользователя при помощи подготовленного выражения
-/*$stmt= mysqli_prepare($connect, 'INSERT INTO user(first_name, last_name, email, username, password) VALUES((?), (?), (?), (?), (?))');
-mysqli_stmt_bind_param($stmt, 'ssssssi', $first_name, $last_name, $email,$username, $Password_hash);
-$answ= mysqli_stmt_execute($stmt);
-mysqli_close($connect)
-or handl_error("Ошибка кода оказалась критической", mysqli_error($connect));
-header("Location: show_user.php");
-//ошибка
-function handl_error($error_message, $system_error_message){
-    header("Location: error.php?" . "error_message={$error_message}&" .
-        "system_error_message={$system_error_message}");
-    exit();}
-//перенаправление
-header('Location: show_user.php?id='. $num) or handl_error;*/
 ?>
 <div class="text-center">
     <h2 class="mb-4 ">Добро пожаловать,   <strong><?php echo $first_name . ' ' . $last_name ?></strong></h2>
@@ -68,7 +46,7 @@ header('Location: show_user.php?id='. $num) or handl_error;*/
     <div class="row">
         <div class="col">
             <table class='New'>
-                <tr><td>Фото</td><td><?php //echo $username?></td></tr>
+                <tr><td></td><td><img class="  p-2" src="<?php echo $img ?>" > </td></tr>
             </table>
         </div>
         <div class="col-6" style="font-size: 1.3em">

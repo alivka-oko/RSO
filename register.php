@@ -25,7 +25,7 @@
  </header>
 
  <div class="d-flex justify-content-center">
-     <form action="valid_user.php" class="needs-validation" method="POST" enctype="multipart/form-data" novalidate>
+     <form action="php_connect.php" class="needs-validation" method="POST" enctype="multipart/form-data" novalidate>
          <table id="form">
          <!-- Email input -->
         <div class="form-outline mb-4">
