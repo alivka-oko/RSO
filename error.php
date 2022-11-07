@@ -19,15 +19,16 @@
     <h1 class="  titleSH p-4   "> Произошла ошибка</h1>
 </div>
 <table><tr>
-        <td><img src="img/котыСКАУТЫ.jpg"  class="m-3" alt="Умная сова"></td>
+        <td><img src="img/котыСКАУТЫ.jpg"  class="m-3" alt=" "></td>
         <td class="p-4">Уважаемый, Пользователь!<br>
             Наша система не смогла обработать Ваше последнее действие. Мы уже в курсе проблемы и предпримем все возможные действия, чтобы Вас не огорчать.<br>
             С уважением, группа поддержки.<br>
             Если хотите вернуться назад, то можете <a href="javascript:history.go(-1)">щелкнуть здесь</a><br>
-            Обратиться лично: forestmarket@yandex.ru
+
     </tr></table><br>
 <p>Технические детали:<br></p>
 <?php
+
 if (isset($_GET['error_message'])){
     $error_message=preg_replace("/\\\\/", '', $_GET['error_message']);}
 else {

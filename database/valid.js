@@ -12,19 +12,18 @@ function valid(row){
     if (row==10){checkpass(12);}
 }
 
-async function uniq_username(username, valid) {
+/*async function uniq_username(username, valid) {
     form=new FormData();
     form.append('username', username);
     try {
-        const response = await fetch('valid_user.php', {
+        const response = await fetch('testusername.php', {
             method: 'POST',
             body: form
         });
         let result = await response.text();
         console.log('Успех:', result);
-        result=result.substr(2);
         a=document.getElementById('form');
-        if (result=='true'&& valid){
+        if (valid){
             a.rows[8].cells[2].innerHTML='<span class="fa fa-check"></span>';
         }
         else {
@@ -40,7 +39,7 @@ async function uniq_username(username, valid) {
         console.log('Ошибка:', error);
         a.rows[8].cells[2].innerHTML='<span class="fa fa-times"></span>';
     }
-}
+}*/
 
 function filecontrol(row) {
     a=document.getElementById('form');

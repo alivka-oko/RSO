@@ -78,6 +78,7 @@ $mysqli_set_charset = mysqli_set_charset($connect, "utf8");
 
 
 
+
 //Добавляем пользователя в базу
 //die($Date_reg);
 $stmt= mysqli_prepare($connect, 'INSERT INTO user(first_name, last_name, email, user_pic_path, username, password) VALUES((?), (?), (?), (?), (?), (?))');
@@ -93,6 +94,13 @@ handl_error("Ошибка перемещения файла", "Ошибка до
 $qery="UPDATE user set user_pic_path='{$upload_filename}' WHERE id={$num}";
 $ans= mysqli_query($connect, $qery);
 //Поместим путь к файлу в базу данных
+
+//почта
+//require "mail.php";
+
+
+
+
 mysqli_close($connect);
 header("Location: valid_user.php?user_id={$num}"); ?>
 

@@ -74,7 +74,7 @@
 
         <div class="form-outline mb-4">
             <tr>
-            <td><label for="email" class="form-label" for="form2Example2">E-mail</label></td>
+            <td><label for="email" class="form-label" for="form2Example2">E-mail</label><span id="responseEmailSpan" style="margin-left: 10px;"></span></td>
             <td><input type="email" placeholder="e-mail" class="form-control" name="email"  required/></td>
             <td></td></tr>
 
@@ -85,12 +85,15 @@
         </div>
         <div class="form-outline mb-4">
             <tr>
-            <td><label class="form-label" for="form2Example2">Логин</label></td>
-            <td><input type="text" class="form-control" name="username" placeholder="Логин" minlength="3" maxlength="20" required
-                   pattern="^[\w]+$" ></td>
+            <td><label class="form-label" for="form2Example2">Логин</label><span id="responseFioSpan" style="margin-left: 10px;"></span></td>
+            <td><input type="text" class="form-control " name="username" placeholder="Логин" minlength="3" maxlength="20" required
+                   pattern="^[\w]+$" onblur="uniq_username(this.value)"  ></td>
                 <td></td></tr>
             <tr>
-                <td></td> <td class="hint" style=" font-size: 0.8em">От 3 до 20 символов: цифр, аглийских букв и знака _</td>
+                <td></td>  <td class="hint" style=" font-size: 0.8em">От 3 до 20 символов: цифр, аглийских букв и знака _</td>
+            </tr>
+            <tr>
+                <td></td>  <td id="warning" style=" font-size: 0.8em; color: red"></td>
             </tr>
 
         </div>
@@ -114,7 +117,7 @@
         <div class="row mb-4">
             <tr>
             <div class="col d-flex justify-content-between">
-                <td><button type="submit" id="submit"  class="button btn btn-clr btn-block mb-4 btn-outline-primary" value="Зарегистрироваться" >Зарегистрироваться</button></td>
+                <td><button type="submit" id="submit"  class="button btn btn-clr btn-block mb-4 btn-outline-primary" value="Зарегистрироваться"  >Зарегистрироваться</button></td>
             </div>
             <div class="col d-flex justify-content-between">
                 <td><button type="reset" style="background-color: rgb(89,97,110); color: rgb(254,255,255)" class="button btn  btn-block mb-4 " value="Очистить" >Очистить</button></td>
@@ -216,8 +219,8 @@
 
 
 
-<!-- Подключаем скрипты -->
-
+<!-- Подключаем скрипты-->
+<script src="ajax.js"></script>
 <script src="./js/calcCartPrice.js"></script>
 <script src="./js/toggleCartStatus.js"></script>
 <script src="./js/counter-02.js"></script>
